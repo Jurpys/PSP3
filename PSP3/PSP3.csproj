@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C86D4119-B2C9-4664-934A-D580074BD2D4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PSP3</RootNamespace>
+    <AssemblyName>PSP3</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\IUndoableCommand.cs" />
+    <Compile Include="Domain\Dispatcher.cs" />
+    <Compile Include="Domain\Interfaces\IOrder.cs" />
+    <Compile Include="Domain\Interfaces\IOrderObserver.cs" />
+    <Compile Include="Domain\Interfaces\ITaxi.cs" />
+    <Compile Include="Domain\Interfaces\ITaxiCompanyFactory.cs" />
+    <Compile Include="Domain\Interfaces\ITaxiObserver.cs" />
+    <Compile Include="Domain\ObservableOrder.cs" />
+    <Compile Include="Domain\ObservableTaxi.cs" />
+    <Compile Include="Domain\Order.cs" />
+    <Compile Include="Domain\SimpleTaxiCompanyFactory.cs" />
+    <Compile Include="Domain\Taxi.cs" />
+    <Compile Include="Controllers\OrderMonitoringController.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\TaxiRepository.cs" />
+    <Compile Include="ViewModels\FinishedOrdersListView.cs" />
+    <Compile Include="ViewModels\FreeOrdersListView.cs" />
+    <Compile Include="ViewModels\Interfaces\IOrderView.cs" />
+    <Compile Include="ViewModels\Interfaces\ITaxiView.cs" />
+    <Compile Include="ViewModels\Models\OrdersListItemModel.cs" />
+    <Compile Include="ViewModels\OrderListView.cs" />
+    <Compile Include="ViewModels\OrderView.cs" />
+    <Compile Include="ViewModels\SimpleOrdersListView.cs" />
+    <Compile Include="ViewModels\SimpleOrderView.cs" />
+    <Compile Include="ViewModels\SimpleTaxiView.cs" />
+    <Compile Include="ViewModels\TakenOrdersListView.cs" />
+    <Compile Include="ViewModels\TaxiView.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\OrderMonitoring.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
