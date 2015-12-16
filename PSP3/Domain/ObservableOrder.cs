@@ -2,7 +2,7 @@
 
 namespace PSP3.Domain
 {
-    public class ObservableOrder : IOrder
+    public class ObservableOrder
     {
         private List<IOrderObserver> _observers = new List<IOrderObserver>();
         private bool _isTaken;

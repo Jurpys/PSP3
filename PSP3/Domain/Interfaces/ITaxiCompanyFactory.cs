@@ -1,9 +1,9 @@
 ﻿namespace PSP3.Domain
 {
-    public interface ITaxiCompanyFactory
+    public interface IObservableTaxiCompanyFactory
     {
-        ITaxi CreateTaxi();
-        IOrder CreateOrder();
+        ObservableTaxi CreateTaxi();
+        ObservableOrder CreateOrder(string destination);
 
         Dispatcher CreateDispatcher();
     }

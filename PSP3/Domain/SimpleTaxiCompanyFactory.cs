@@ -1,15 +1,15 @@
 ﻿namespace PSP3.Domain
 {
-    public class SimpleTaxiCompanyFactory : ITaxiCompanyFactory
+    public class SimpleTaxiCompanyFactory : IObservableTaxiCompanyFactory
     {
-        public ITaxi CreateTaxi()
+        public ObservableTaxi CreateTaxi()
         {
             return new Taxi();
         }
 
-        public IOrder CreateOrder()
+        public ObservableOrder CreateOrder(string destination)
         {
-            return new Order();
+            return new Order(destination);
         }
 
         public Dispatcher CreateDispatcher()

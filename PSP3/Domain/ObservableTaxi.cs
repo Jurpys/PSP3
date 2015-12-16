@@ -2,10 +2,10 @@
 
 namespace PSP3.Domain
 {
-    public abstract class ObservableTaxi : ITaxi
+    public abstract class ObservableTaxi
     {
         private List<ITaxiObserver> _observers;
-        private IOrder _order;
+        private ObservableOrder _order;
 
         public int Id { get; set; }
 
@@ -33,7 +33,7 @@ namespace PSP3.Domain
             }
         }
 
-        public IOrder Order
+        public ObservableOrder Order
         {
             set
             {

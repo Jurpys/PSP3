@@ -4,13 +4,13 @@ using PSP3.Domain;
 
 namespace PSP3.Repositories
 {
-    public class TaxiRepository
+    public class ObservableTaxiRepository
     {
         private int lastId = 1;
 
-        private Dictionary<int, ITaxi> taxis = new Dictionary<int, ITaxi>();
+        private Dictionary<int, ObservableTaxi> taxis = new Dictionary<int, ObservableTaxi>();
 
-        public void Save(ITaxi taxi)
+        public void Save(ObservableTaxi taxi)
         {
             if (taxi.Id == 0)
             {
@@ -20,12 +20,12 @@ namespace PSP3.Repositories
             taxis.Add(taxi.Id, taxi);
         }
 
-        public ITaxi Find(int taxiId)
+        public ObservableTaxi Find(int taxiId)
         {
             return taxis[taxiId];
         }
 
-        public ICollection<ITaxi> FindAll()
+        public Dictionary<int, ObservableTaxi>.ValueCollection FindAll()
         {
             return taxis.Values;
         }

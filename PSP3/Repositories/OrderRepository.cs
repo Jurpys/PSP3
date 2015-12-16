@@ -7,9 +7,9 @@ namespace PSP3.Repositories
     {
         private int lastId = 1;
 
-        private Dictionary<int, IOrder> orders = new Dictionary<int, IOrder>();
+        private Dictionary<int, ObservableOrder> orders = new Dictionary<int, ObservableOrder>();
 
-        public void Save(IOrder order)
+        public void Save(ObservableOrder order)
         {
             if (order.Id == 0)
             {
@@ -19,12 +19,12 @@ namespace PSP3.Repositories
             orders.Add(order.Id, order);
         }
 
-        public IOrder Find(int orderId)
+        public ObservableOrder Find(int orderId)
         {
             return orders[orderId];
         }
 
-        public ICollection<IOrder> FindAll()
+        public ICollection<ObservableOrder> FindAll()
         {
             return orders.Values;
         }
