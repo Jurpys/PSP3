@@ -2,7 +2,7 @@
 {
     public class Taxi : ObservableTaxi
     {
-        public Taxi() : base()
+        public Taxi(double tariff) : base(tariff)
         {
         }
     }

@@ -11,7 +11,7 @@ namespace PSP3
     {
         public static void Main()
         {
-            var cont = new OrderMonitoringController(new OrderMonitoring(), new OrderRepository(), new SimpleTaxiCompanyFactory());
+            var cont = new OrderController(new OrderUIView(), new OrderRepository(), new SimpleTaxiCompanyFactory());
             cont.InitializeView();
         }
     }

@@ -1,14 +1,13 @@
 ﻿using System;
-using PSP3.Commands;
 using PSP3.Controllers;
 using PSP3.ViewModels;
 
 namespace PSP3.Views
 {
-    public class OrderMonitoring
+    public class OrderUIView
     {
-        private OrderMonitoringController _controller;
-        public void Initialize(OrderMonitoringController controller)
+        private OrderController _controller;
+        public void Initialize(OrderController controller)
         {
             _controller = controller;
 
@@ -57,7 +56,7 @@ namespace PSP3.Views
 
             var model = _controller.GetOrdersList();
             model.Display();
-            WaitForSpace();
+            ConsoleHelper.WaitForSpace(_controller);
         }
 
         private void UndoLastOperation()
@@ -65,12 +64,12 @@ namespace PSP3.Views
             _controller.UndoLastOperation();
             Console.Clear();
             Console.WriteLine("Last operation has been successfully undone");
-            WaitForSpace();
+            ConsoleHelper.WaitForSpace(_controller);
         }
 
         private void UpdateOrder()
         {
-            var id = GetIdInput();
+            var id = ConsoleHelper.GetIntInput("Enter id");
 
             var model = _controller.GetOrderDetailsById(id);
 
@@ -94,90 +93,48 @@ namespace PSP3.Views
         {
             Console.Clear();
 
-            var val = GetNewValue();
+            var val = ConsoleHelper.GetIntInput("Enter new destination");
 
             _controller.UpdateOrderDestination(id, val);
 
             Console.Clear();
             Console.WriteLine("Order has been successfully updated");
-            WaitForSpace();
+            ConsoleHelper.WaitForSpace(_controller);
         }
 
         private void DeleteOrder()
         {
-            var id = GetIdInput();
+            var id = ConsoleHelper.GetIntInput("Enter id");
 
             _controller.DeleteOrderById(id);
             Console.Clear();
             Console.WriteLine("Order has been successfully deleted");
-            WaitForSpace();
+            ConsoleHelper.WaitForSpace(_controller);
 
         }
 
         private void OpenOrderDetails()
         {
-            var id = GetIdInput();
+            var id = ConsoleHelper.GetIntInput("Enter id");
 
             var model = _controller.GetOrderDetailsById(id);
 
             Console.Clear();
             model.Display();
-            WaitForSpace();
-        }
-
-        private int GetIdInput()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter id of the order");
-            var numericString = Console.ReadLine();
-            int id;
-
-            if (int.TryParse(numericString, out id))
-            {
-                return id;
-            }
-
-            Console.WriteLine("Bad input");
-            Console.WriteLine("Press any key to try again");
-            Console.ReadKey();
-
-            return GetIdInput();
+            ConsoleHelper.WaitForSpace(_controller);
         }
 
         private void CreateNewOrder()
         {
             Console.Clear();
-            Console.WriteLine("Enter the destination");
 
-            var destination = Console.ReadLine();
+            var destination = ConsoleHelper.GetIntInput("Enter Destination");
+
             _controller.NewOrder(destination);
 
             Console.Clear();
             Console.WriteLine("Order has been successfully registered");
-            WaitForSpace();
-        }
-
-        private void PrintOrders(IOrderView modelView)
-        {
-            Console.Clear();
-            modelView.Display();
-            WaitForSpace();
-        }
-
-        private void WaitForSpace()
-        {
-            Console.WriteLine("Press Spacebar to go back to menu");
-            while (Console.ReadKey().Key != ConsoleKey.Spacebar)
-            {
-            }
-
-            _controller.InitializeView();
-        }
-
-        private string GetNewValue()
-        {
-            Console.WriteLine("Enter new value");
-            return Console.ReadLine();
+            ConsoleHelper.WaitForSpace(_controller);
         }
     }
 }

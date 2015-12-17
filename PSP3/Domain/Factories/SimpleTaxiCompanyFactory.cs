@@ -4,17 +4,12 @@
     {
         public ObservableTaxi CreateTaxi()
         {
-            return new Taxi();
+            return new Taxi(1.20);
         }
 
-        public ObservableOrder CreateOrder(string destination)
+        public ObservableOrder CreateOrder(int destination)
         {
             return new Order(destination);
-        }
-
-        public Dispatcher CreateDispatcher()
-        {
-            return Dispatcher.Instance();
         }
     }
 }

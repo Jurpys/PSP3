@@ -1,19 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PSP3.Domain
 {
-    public abstract class ObservableTaxi
+    public abstract class ObservableTaxi : IOrderObserver
     {
         private List<ITaxiObserver> _observers;
-        private ObservableOrder _order;
-
+        private int? _orderId;
+        private int _lastOrderDestination;
+        private readonly double _tariff;
+        private int _currentLocation;
         public int Id { get; set; }
 
         public string DriverName { get; set; }
 
-        protected ObservableTaxi()
+        public bool IsBusy { get; set; }
+
+        public double Tariff => _tariff;
+
+        public int CurrentLocation => _currentLocation;
+
+        protected ObservableTaxi(double tariff)
         {
+            _tariff = tariff;
         }
+
+        public int? OrderId => _orderId;
 
         public void AttachObserver(ITaxiObserver observer)
         {
@@ -33,23 +45,31 @@ namespace PSP3.Domain
             }
         }
 
-        public ObservableOrder Order
+        public void SetOrder(ObservableOrder order)
         {
-            set
-            {
-                if (_order == null)
-                {
-                    _order = value;
-                    Notify();
-                }
-            }
-            get { return _order; }
+            _orderId = order.Id;
+            order.IsTaken = true;
+            _lastOrderDestination = order.Destination;//TODO pridėti logiką
+            Notify();
+            order.AttachObserver(this);
         }
 
         public void CompleteOrder()
         {
-            _order = null;
+            _orderId = null;
+            var price = CalculateCurrentOrderPrice();
             Notify();
+            _currentLocation = _lastOrderDestination;
+        }
+
+        public void UpdateAfterOrderChanged(ObservableOrder order)
+        {
+            _lastOrderDestination = order.Destination;
+        }
+
+        public double CalculateCurrentOrderPrice()
+        {
+            return Math.Round(_tariff*Math.Abs(_lastOrderDestination - _currentLocation), 2);
         }
     }
 }

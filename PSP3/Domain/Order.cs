@@ -8,9 +8,9 @@ namespace PSP3.Domain
 {
     public class Order : ObservableOrder
     {
-        public Order(string destination)
+        public Order(int destination)
         {
-            Destination = destination;
+            _destination = destination;
         }
     }
 }

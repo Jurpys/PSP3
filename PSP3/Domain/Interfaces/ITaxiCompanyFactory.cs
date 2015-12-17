@@ -3,8 +3,6 @@
     public interface IObservableTaxiCompanyFactory
     {
         ObservableTaxi CreateTaxi();
-        ObservableOrder CreateOrder(string destination);
-
-        Dispatcher CreateDispatcher();
+        ObservableOrder CreateOrder(int destination);
     }
 }

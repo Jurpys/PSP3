@@ -9,7 +9,7 @@ namespace PSP3.ViewModels
         OrderRepository _orderRepository;
 
         public string IsTaken;
-        public string Destination;
+        public int Destination;
         public double Price;
 
         public SimpleOrderView(int id, OrderRepository orderRepository) : base(id)

@@ -1,4 +1,5 @@
 ﻿using PSP3.Commands;
+using PSP3.Controllers.Interfaces;
 using PSP3.Domain;
 using PSP3.Repositories;
 using PSP3.ViewModels;
@@ -6,14 +7,14 @@ using PSP3.Views;
 
 namespace PSP3.Controllers
 {
-    public class OrderMonitoringController
+    public class OrderController : IController
     {
         private IObservableTaxiCompanyFactory _factory;
         private OrderRepository _orderRepository;
-        private OrderMonitoring _view;
+        private OrderUIView _view;
         private CommandProcessor _commandProcessor = new CommandProcessor();
 
-        public OrderMonitoringController(OrderMonitoring view, OrderRepository orderRepository, SimpleTaxiCompanyFactory factory)
+        public OrderController(OrderUIView view, OrderRepository orderRepository, SimpleTaxiCompanyFactory factory)
         {
             _view = view;
             _orderRepository = orderRepository;
@@ -25,7 +26,7 @@ namespace PSP3.Controllers
             _view.Initialize(this);
         }
 
-        public void NewOrder(string destination)
+        public void NewOrder(int destination)
         {
             var command = new CreateNewOrderCommand(destination, _factory, _orderRepository);
 
@@ -47,7 +48,7 @@ namespace PSP3.Controllers
             _commandProcessor.UndoLast();
         }
 
-        public void UpdateOrderDestination(int id, string newDest)
+        public void UpdateOrderDestination(int id, int newDest)
         {
             _commandProcessor.Execute(new UpdateOrderDestinationCommand(id, newDest, _orderRepository));
         }
