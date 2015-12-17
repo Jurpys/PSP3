@@ -10,15 +10,16 @@ namespace PSP3.Controllers
     public class OrderController : IController
     {
         private IObservableTaxiCompanyFactory _factory;
-        private OrderRepository _orderRepository;
+        private IOrderRepository _IOrderRepository;
         private OrderUIView _view;
-        private CommandProcessor _commandProcessor = new CommandProcessor();
+        private ICommandProcessor _commandProcessor;
 
-        public OrderController(OrderUIView view, OrderRepository orderRepository, SimpleTaxiCompanyFactory factory)
+        public OrderController(OrderUIView view, IOrderRepository IOrderRepository, IObservableTaxiCompanyFactory factory, ICommandProcessor commandProcessor)
         {
             _view = view;
-            _orderRepository = orderRepository;
+            _IOrderRepository = IOrderRepository;
             _factory = factory;
+            _commandProcessor = commandProcessor;
         }
 
         public void InitializeView()
@@ -28,19 +29,19 @@ namespace PSP3.Controllers
 
         public void NewOrder(int destination)
         {
-            var command = new CreateNewOrderCommand(destination, _factory, _orderRepository);
+            var command = new CreateNewOrderCommand(destination, _factory, _IOrderRepository);
 
             _commandProcessor.Execute(command);
         }
 
         public IOrderView GetOrderDetailsById(int id)
         {
-            return new SimpleOrderView(id, _orderRepository);
+            return new SimpleOrderView(id, _IOrderRepository);
         }
 
         public void DeleteOrderById(int id)
         {
-            _commandProcessor.Execute(new DeleteOrderCommand(id, _orderRepository));
+            _commandProcessor.Execute(new DeleteOrderCommand(id, _IOrderRepository));
         }
 
         public void UndoLastOperation()
@@ -50,12 +51,12 @@ namespace PSP3.Controllers
 
         public void UpdateOrderDestination(int id, int newDest)
         {
-            _commandProcessor.Execute(new UpdateOrderDestinationCommand(id, newDest, _orderRepository));
+            _commandProcessor.Execute(new UpdateOrderDestinationCommand(id, newDest, _IOrderRepository));
         }
 
         public IOrderView GetOrdersList()
         {
-            return new SimpleOrdersListView(_orderRepository);
+            return new SimpleOrdersListView(_IOrderRepository);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PSP3.Commands
 {
-    public class CommandProcessor : ICommandProcessor
+    public class SimpleCommandProcessor : ICommandProcessor
     {
         Stack<ICommand> _commands = new Stack<ICommand>();
 

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using PSP3.Domain;
+using PSP3.Repositories;
 
 namespace PSP3.Repositories
 {
-    public class OrderRepository
+    public class SimpleOrderRepository : IOrderRepository
     {
         private int lastId = 1;
 

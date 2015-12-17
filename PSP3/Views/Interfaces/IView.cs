@@ -4,7 +4,6 @@ namespace PSP3.Views
 {
     public interface IView
     {
-        void Update();
         void Initialize();
     }
 }

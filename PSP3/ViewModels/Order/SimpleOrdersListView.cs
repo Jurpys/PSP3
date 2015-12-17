@@ -6,9 +6,9 @@ namespace PSP3.ViewModels
     public class SimpleOrdersListView : IOrderView
     {
         private List<SimpleOrderListItemView> list;
-        private OrderRepository _repository;
+        private IOrderRepository _repository;
 
-        public SimpleOrdersListView(OrderRepository repository)
+        public SimpleOrdersListView(IOrderRepository repository)
         {
             _repository = repository;
         }

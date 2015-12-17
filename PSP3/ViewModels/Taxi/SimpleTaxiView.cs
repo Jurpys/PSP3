@@ -13,8 +13,8 @@ namespace PSP3.ViewModels
 
         private TaxiViewAdapter adapter = new TaxiViewAdapter();
 
-        ObservableTaxiRepository _taxiRepository;
-        public SimpleTaxiView(int id, ObservableTaxiRepository taxiRepository) : base(id)
+        ITaxiRepository _taxiRepository;
+        public SimpleTaxiView(int id, ITaxiRepository taxiRepository) : base(id)
         {
             _taxiRepository = taxiRepository;
             Initialize();

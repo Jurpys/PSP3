@@ -36,7 +36,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CommandProcessor.cs" />
+    <Compile Include="Commands\SimpleCommandProcessor.cs" />
     <Compile Include="Commands\Commands\CreateNewOrderCommand.cs" />
     <Compile Include="Commands\Commands\DeleteOrderCommand.cs" />
     <Compile Include="Commands\Commands\UpdateOrderDestinationCommand.cs" />
@@ -53,8 +53,11 @@
     <Compile Include="Domain\Taxi.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Repositories\ObservableTaxiRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IOrderRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITaxiRepository.cs" />
+    <Compile Include="Repositories\SimpleOrderRepository.cs" />
+    <Compile Include="Repositories\SimpleTaxiRepository.cs" />
+    <Compile Include="UIFactory\OrdersMonitoringUIFactory.cs" />
     <Compile Include="ViewModels\Interfaces\IOrderView.cs" />
     <Compile Include="ViewModels\Interfaces\ITaxiView.cs" />
     <Compile Include="ViewModels\Order\OrderView.cs" />
@@ -65,7 +68,7 @@
     <Compile Include="ViewModels\Taxi\SimpleTaxiView.cs" />
     <Compile Include="ViewModels\Taxi\TaxiView.cs" />
     <Compile Include="Views\Helpers\ConsoleHelper.cs" />
-    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\Interfaces\IView.cs" />
     <Compile Include="Views\OrderUIView.cs" />
   </ItemGroup>
   <ItemGroup>

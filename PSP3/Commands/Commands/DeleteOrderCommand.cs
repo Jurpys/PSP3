@@ -6,10 +6,10 @@ namespace PSP3.Commands
     public class DeleteOrderCommand : ICommand
     {
         private int _id;
-        private readonly OrderRepository _repository;
+        private readonly IOrderRepository _repository;
         private readonly ObservableOrder _order;
 
-        public DeleteOrderCommand(int id, OrderRepository repository)
+        public DeleteOrderCommand(int id, IOrderRepository repository)
         {
             _repository = repository;
             _id = id;

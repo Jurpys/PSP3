@@ -4,17 +4,17 @@ namespace PSP3.Commands
 {
     public class UpdateOrderDestinationCommand : ICommand
     {
-        OrderRepository _repository;
+        IOrderRepository _repository;
         int _id;
         int _oldDest;
         int _newDest;
 
-        public UpdateOrderDestinationCommand(int id, int newDest, OrderRepository orderRepository)
+        public UpdateOrderDestinationCommand(int id, int newDest, IOrderRepository IOrderRepository)
         {
-            _repository = orderRepository;
+            _repository = IOrderRepository;
             _id = id;
             _newDest = newDest;
-            _oldDest = orderRepository.Find(id).Destination;
+            _oldDest = IOrderRepository.Find(id).Destination;
         }
 
         public void Execute()

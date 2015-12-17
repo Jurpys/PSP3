@@ -7,10 +7,10 @@ namespace PSP3.Commands
     {
         private readonly IObservableTaxiCompanyFactory _factory;
         private int _id;
-        private readonly OrderRepository _repository;
+        private readonly IOrderRepository _repository;
         private readonly int _destination;
 
-        public CreateNewOrderCommand(int destination, IObservableTaxiCompanyFactory factory, OrderRepository repository)
+        public CreateNewOrderCommand(int destination, IObservableTaxiCompanyFactory factory, IOrderRepository repository)
         {
             _destination = destination;
             _factory = factory;

@@ -6,15 +6,15 @@ namespace PSP3.ViewModels
 {
     public class SimpleOrderView : OrderView
     {
-        OrderRepository _orderRepository;
+        IOrderRepository _IOrderRepository;
 
         public string IsTaken;
         public int Destination;
         public double Price;
 
-        public SimpleOrderView(int id, OrderRepository orderRepository) : base(id)
+        public SimpleOrderView(int id, IOrderRepository IOrderRepository) : base(id)
         {
-            _orderRepository = orderRepository;
+            _IOrderRepository = IOrderRepository;
             Initilize();
         }
 
@@ -35,7 +35,7 @@ namespace PSP3.ViewModels
 
         private void Initilize()
         {
-            var order = _orderRepository.Find(_id);
+            var order = _IOrderRepository.Find(_id);
             order.AttachObserver(this);
             Update(order);
         }

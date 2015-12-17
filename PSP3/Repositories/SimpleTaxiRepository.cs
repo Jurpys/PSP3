@@ -4,7 +4,7 @@ using PSP3.Domain;
 
 namespace PSP3.Repositories
 {
-    public class ObservableTaxiRepository
+    public class SimpleTaxiRepository : ITaxiRepository
     {
         private int lastId = 1;
 
@@ -25,7 +25,7 @@ namespace PSP3.Repositories
             return taxis[taxiId];
         }
 
-        public Dictionary<int, ObservableTaxi>.ValueCollection FindAll()
+        public ICollection<ObservableTaxi> FindAll()
         {
             return taxis.Values;
         }
