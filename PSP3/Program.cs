@@ -1,11 +1,7 @@
-﻿using System.Windows.Forms;
-using PSP3.Commands;
-using PSP3.Controllers;
-using PSP3.Domain;
+﻿using PSP3.Commands;
+using PSP3.DomainFactory;
 using PSP3.Repositories;
 using PSP3.UIFactory;
-using PSP3.ViewModels;
-using PSP3.Views;
 
 namespace PSP3
 {

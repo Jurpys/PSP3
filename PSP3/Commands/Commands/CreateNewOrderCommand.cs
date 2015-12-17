@@ -1,4 +1,4 @@
-﻿using PSP3.Domain;
+﻿using PSP3.DomainFactory;
 using PSP3.Repositories;
 
 namespace PSP3.Commands
