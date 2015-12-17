@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="A = 1/2&#xD;&#xA;&#xD;&#xA;Ca = 10&#xD;&#xA;Ce = 3&#xD;&#xA;&#xD;&#xA;I = 3/13&#xD;&#xA;&#xD;&#xA;D = 19/26">
+    <Position X="9.901" Y="1.365" Height="1.406" Width="1.7" />
+  </Comment>
+  <Class Name="PSP3.Domain.ObservableOrder">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAQAAACACAAAAAEAAEAQAAABEAAAQAAQAAAA=</HashCode>
+      <FileName>Domain\ObservableOrder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PSP3.Domain.ObservableTaxi">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAICQEAAAAAAAAAABAAAAEhAAAAhAARIAAAQCAQAAAA=</HashCode>
+      <FileName>Domain\ObservableTaxi.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PSP3.Domain.Order">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PSP3.Domain.Taxi">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Taxi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="PSP3.Domain.IOrderObserver" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interfaces\IOrderObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PSP3.Domain.ITaxiObserver" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\Interfaces\ITaxiObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="">
+    <Position X="9.901" Y="1.365" Height="1.25" Width="1.7" />
+  </Comment>
+  <Class Name="PSP3.Repositories.SimpleOrderRepository" BaseTypeListCollapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIABAAAAAAAAAAAQAAAAAAEIAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\SimpleOrderRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PSP3.Repositories.SimpleTaxiRepository" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAQAAAAAAEIACBAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\SimpleTaxiRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="PSP3.Repositories.IOrderRepository">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAQAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IOrderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PSP3.Repositories.ITaxiRepository">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAQAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\ITaxiRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

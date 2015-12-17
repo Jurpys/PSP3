@@ -34,6 +34,14 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Diagrams\Repositories.cd" />
+    <None Include="Diagrams\DomainFactory.cd" />
+    <None Include="Diagrams\Domain.cd" />
+    <None Include="Diagrams\Controllers.cd" />
+    <None Include="Diagrams\Commands.cd" />
+    <None Include="Diagrams\Views.cd" />
+    <None Include="Diagrams\ViewModels.cd" />
+    <None Include="Diagrams\UIFactory.cd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\SimpleCommandProcessor.cs" />
@@ -78,9 +86,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Diagrams\PackageDiagram.png" />
   </ItemGroup>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="A = 1/2&#xD;&#xA;&#xD;&#xA;Ca = 4&#xD;&#xA;Ce = 2&#xD;&#xA;I = 1/3&#xD;&#xA;&#xD;&#xA;D = 5/6">
+    <Position X="8.099" Y="1.428" Height="1.208" Width="1.7" />
+  </Comment>
+  <Class Name="PSP3.DomainFactory.SimpleTaxiCompanyFactory" Collapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>DomainFactory\SimpleTaxiCompanyFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="PSP3.DomainFactory.IObservableTaxiCompanyFactory" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>DomainFactory\Interfaces\ITaxiCompanyFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
