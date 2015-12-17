@@ -61,6 +61,7 @@
     <Compile Include="ViewModels\Order\SimpleOrderListItemView.cs" />
     <Compile Include="ViewModels\Order\SimpleOrderView.cs" />
     <Compile Include="ViewModels\Order\SimpleOrdersListView.cs" />
+    <Compile Include="ViewModels\Taxi\Adapters\TaxiViewAdapter.cs" />
     <Compile Include="ViewModels\Taxi\SimpleTaxiView.cs" />
     <Compile Include="ViewModels\Taxi\TaxiView.cs" />
     <Compile Include="Views\Helpers\ConsoleHelper.cs" />
