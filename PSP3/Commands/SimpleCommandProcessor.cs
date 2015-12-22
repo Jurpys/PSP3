@@ -10,7 +10,7 @@ namespace PSP3.Commands
         public void Execute(ICommand command)
         {
             command.Execute();
-            _commands.Push(command.Clone());
+            _commands.Push(command);
         }
 
         public void UndoLast()

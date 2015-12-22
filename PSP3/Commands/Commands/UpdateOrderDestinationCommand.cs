@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using PSP3.CommandsService;
 using PSP3.DomainService;
@@ -29,7 +30,7 @@ namespace PSP3.Commands
         {
             _repository.Find(_id).Destination = _oldDest;
         }
-
+        //check
         public ICommand Clone()
         {
             using (var ms = new MemoryStream())

@@ -31,7 +31,7 @@ namespace PSP3.Commands
         {
             _repository.Delete(_id);
         }
-
+        //check
         public ICommand Clone()
         {
             using (var ms = new MemoryStream())

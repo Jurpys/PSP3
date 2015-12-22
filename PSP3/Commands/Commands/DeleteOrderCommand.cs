@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using PSP3.CommandsService;
 using PSP3.DomainService;
@@ -27,6 +28,8 @@ namespace PSP3.Commands
         {
             _repository.Save(_order);
         }
+
+        //check
 
         public ICommand Clone()
         {
