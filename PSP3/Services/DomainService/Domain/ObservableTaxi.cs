@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PSP3.Domain
+namespace PSP3.DomainService
 {
     public abstract class ObservableTaxi : IOrderObserver
     {
         private List<ITaxiObserver> _observers;
         private int? _orderId;
-        private int _lastOrderDestination;
-        private readonly double _tariff;
-        private int _currentLocation;
+        protected int _lastOrderDestination;
+        protected readonly double _tariff;
+        protected int _currentLocation;
         public int Id { get; set; }
 
         public string DriverName { get; set; }
@@ -67,7 +67,7 @@ namespace PSP3.Domain
             _lastOrderDestination = order.Destination;
         }
 
-        public double CalculateCurrentOrderPrice()
+        public virtual double CalculateCurrentOrderPrice()
         {
             return Math.Round(_tariff*Math.Abs(_lastOrderDestination - _currentLocation), 2);
         }

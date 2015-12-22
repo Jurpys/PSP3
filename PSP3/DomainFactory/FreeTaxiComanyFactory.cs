@@ -3,16 +3,16 @@ using PSP3.DomainService;
 
 namespace PSP3.DomainFactory
 {
-    public class SimpleTaxiCompanyFactory : IObservableTaxiCompanyFactory
+    public class CheapTaxiComanyFactory : IObservableTaxiCompanyFactory
     {
         public ObservableTaxi CreateTaxi()
         {
-            return new Taxi(1.20);
+            return new DiscountedTaxi(1.20);
         }
 
         public ObservableOrder CreateOrder(int destination)
         {
-            return new Order(destination);
+            return new FreeOrder(destination);
         }
     }
 }

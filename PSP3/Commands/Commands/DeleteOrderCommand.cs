@@ -1,5 +1,7 @@
-﻿using PSP3.Domain;
-using PSP3.Repositories;
+﻿using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using PSP3.CommandsService;
+using PSP3.DomainService;
 
 namespace PSP3.Commands
 {
@@ -24,6 +26,18 @@ namespace PSP3.Commands
         public void Undo()
         {
             _repository.Save(_order);
+        }
+
+        public ICommand Clone()
+        {
+            using (var ms = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(ms, this);
+                ms.Position = 0;
+
+                return (DeleteOrderCommand)formatter.Deserialize(ms);
+            }
         }
     }
 }

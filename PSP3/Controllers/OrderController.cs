@@ -1,7 +1,7 @@
 ﻿using PSP3.Commands;
-using PSP3.Controllers.Interfaces;
-using PSP3.DomainFactory;
-using PSP3.Repositories;
+using PSP3.CommandsService;
+using PSP3.DomainService;
+using PSP3.UIService;
 using PSP3.ViewModels;
 using PSP3.Views;
 
@@ -11,15 +11,16 @@ namespace PSP3.Controllers
     {
         private IObservableTaxiCompanyFactory _factory;
         private IOrderRepository _IOrderRepository;
-        private OrderUIView _view;
+        private OrderUIView _view = new OrderUIView();
         private ICommandProcessor _commandProcessor;
+        private ITaxiRepository _orderRepository;
 
-        public OrderController(OrderUIView view, IOrderRepository IOrderRepository, IObservableTaxiCompanyFactory factory, ICommandProcessor commandProcessor)
+        public OrderController(ITaxiRepository orderRepository, IOrderRepository IOrderRepository, IObservableTaxiCompanyFactory factory, ICommandProcessor commandProcessor)
         {
-            _view = view;
             _IOrderRepository = IOrderRepository;
             _factory = factory;
             _commandProcessor = commandProcessor;
+            _orderRepository = orderRepository;
         }
 
         public void InitializeView()
@@ -34,7 +35,7 @@ namespace PSP3.Controllers
             _commandProcessor.Execute(command);
         }
 
-        public IOrderView GetOrderDetailsById(int id)
+        public IViewModel GetOrderDetailsById(int id)
         {
             return new SimpleOrderView(id, _IOrderRepository);
         }
@@ -54,7 +55,7 @@ namespace PSP3.Controllers
             _commandProcessor.Execute(new UpdateOrderDestinationCommand(id, newDest, _IOrderRepository));
         }
 
-        public IOrderView GetOrdersList()
+        public IViewModel GetOrdersList()
         {
             return new SimpleOrdersListView(_IOrderRepository);
         }

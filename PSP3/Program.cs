@@ -1,7 +1,10 @@
 ﻿using PSP3.Commands;
+using PSP3.CommandsService;
 using PSP3.DomainFactory;
+using PSP3.DomainService;
 using PSP3.Repositories;
 using PSP3.UIFactory;
+using PSP3.UIService;
 
 namespace PSP3
 {
@@ -9,14 +12,14 @@ namespace PSP3
     {
         public static void Main()
         {
-            var uiFactory = new OrdersMonitoringUIFactory();
+            IUIFactory uiFactory = new OrdersMonitoringUIFactory();
 
-            ITaxiRepository fact = new SimpleTaxiRepository();
-            IOrderRepository repo = new SimpleOrderRepository();
+            ITaxiRepository taxi = new SimpleTaxiRepository();
+            IOrderRepository ord = new SimpleOrderRepository();
             ICommandProcessor cmdProcessor = new SimpleCommandProcessor();
             IObservableTaxiCompanyFactory domain = new SimpleTaxiCompanyFactory();
 
-            var controller = uiFactory.CreateController(repo, domain, cmdProcessor);
+            IController controller = uiFactory.CreateController(taxi, ord, domain, cmdProcessor);
             
             controller.InitializeView();
         }

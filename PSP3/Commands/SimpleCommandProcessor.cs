@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PSP3.CommandsService;
 
 namespace PSP3.Commands
 {
@@ -9,7 +10,7 @@ namespace PSP3.Commands
         public void Execute(ICommand command)
         {
             command.Execute();
-            _commands.Push(command);
+            _commands.Push(command.Clone());
         }
 
         public void UndoLast()

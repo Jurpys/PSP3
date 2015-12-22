@@ -1,9 +1,9 @@
-﻿using System;
-using PSP3.Domain;
+﻿using PSP3.DomainService;
+using PSP3.UIService;
 
 namespace PSP3.ViewModels
 {
-    public abstract class TaxiView : ITaxiObserver, ITaxiView
+    public abstract class TaxiView : ITaxiObserver, IViewModel
     {
         protected int _id;
 

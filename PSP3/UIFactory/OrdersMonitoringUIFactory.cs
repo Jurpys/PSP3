@@ -1,17 +1,15 @@
-﻿using PSP3.Commands;
+﻿using PSP3.CommandsService;
 using PSP3.Controllers;
-using PSP3.Controllers.Interfaces;
-using PSP3.DomainFactory;
-using PSP3.Repositories;
-using PSP3.Views;
+using PSP3.DomainService;
+using PSP3.UIService;
 
 namespace PSP3.UIFactory
 {
-    public class OrdersMonitoringUIFactory
+    public class OrdersMonitoringUIFactory : IUIFactory
     {
-        public IController CreateController(IOrderRepository IOrderRepository, IObservableTaxiCompanyFactory factory, ICommandProcessor commandProcessor)
+        public IController CreateController(ITaxiRepository taxiRepository, IOrderRepository orderRepository, IObservableTaxiCompanyFactory factory, ICommandProcessor commandProcessor)
         {
-            return new OrderController(new OrderUIView(), IOrderRepository, factory, commandProcessor);
+            return new OrderController(taxiRepository, orderRepository, factory, commandProcessor);
         }
     }
 }

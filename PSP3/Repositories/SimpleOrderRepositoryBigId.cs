@@ -3,9 +3,9 @@ using PSP3.DomainService;
 
 namespace PSP3.Repositories
 {
-    public class SimpleOrderRepository : IOrderRepository
+    public class SimpleOrderRepositoryBigId : IOrderRepository
     {
-        private int lastId = 1;
+        private int lastId = 1000;
 
         private Dictionary<int, ObservableOrder> orders = new Dictionary<int, ObservableOrder>();
 
@@ -13,7 +13,9 @@ namespace PSP3.Repositories
         {
             if (order.Id == 0)
             {
-                order.Id = lastId++;
+                lastId += 100;
+
+                order.Id = lastId;
             }
 
             orders.Add(order.Id, order);

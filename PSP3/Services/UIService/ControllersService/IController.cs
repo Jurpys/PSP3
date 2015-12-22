@@ -1,4 +1,4 @@
-﻿namespace PSP3.Controllers.Interfaces
+﻿namespace PSP3.UIService
 {
     public interface IController
     {

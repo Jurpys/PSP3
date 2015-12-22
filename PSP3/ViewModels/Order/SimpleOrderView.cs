@@ -1,6 +1,5 @@
 ﻿using System;
-using PSP3.Domain;
-using PSP3.Repositories;
+using PSP3.DomainService;
 
 namespace PSP3.ViewModels
 {
@@ -12,6 +11,8 @@ namespace PSP3.ViewModels
         public int Destination;
         public double Price;
 
+        OrderViewAdapter adapter = new OrderViewAdapter();
+
         public SimpleOrderView(int id, IOrderRepository IOrderRepository) : base(id)
         {
             _IOrderRepository = IOrderRepository;
@@ -20,7 +21,7 @@ namespace PSP3.ViewModels
 
         protected override void Update(ObservableOrder order)
         {
-            IsTaken = order.IsTaken ? "Yes" : "No";
+            IsTaken = adapter.GetOrderIsTaken(order);
             Destination = order.Destination;
             Price = order.Price ?? 0;
         }

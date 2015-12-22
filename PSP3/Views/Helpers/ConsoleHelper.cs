@@ -1,5 +1,5 @@
 ﻿using System;
-using PSP3.Controllers.Interfaces;
+using PSP3.UIService;
 
 namespace PSP3.Views
 {

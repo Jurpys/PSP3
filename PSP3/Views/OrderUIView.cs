@@ -1,6 +1,5 @@
 ﻿using System;
 using PSP3.Controllers;
-using PSP3.ViewModels;
 
 namespace PSP3.Views
 {

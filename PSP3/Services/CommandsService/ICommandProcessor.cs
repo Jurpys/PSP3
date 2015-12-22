@@ -1,4 +1,4 @@
-﻿namespace PSP3.Commands
+﻿namespace PSP3.CommandsService
 {
     public interface ICommandProcessor
     {

@@ -44,30 +44,39 @@
     <None Include="Diagrams\UIFactory.cd" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\LoggingCommandProcessor.cs" />
     <Compile Include="Commands\SimpleCommandProcessor.cs" />
     <Compile Include="Commands\Commands\CreateNewOrderCommand.cs" />
     <Compile Include="Commands\Commands\DeleteOrderCommand.cs" />
     <Compile Include="Commands\Commands\UpdateOrderDestinationCommand.cs" />
-    <Compile Include="Commands\Interfaces\ICommand.cs" />
-    <Compile Include="Commands\Interfaces\ICommandProcessor.cs" />
-    <Compile Include="Controllers\Interfaces\IController.cs" />
-    <Compile Include="Domain\Interfaces\IOrderObserver.cs" />
-    <Compile Include="DomainFactory\Interfaces\ITaxiCompanyFactory.cs" />
-    <Compile Include="Domain\Interfaces\ITaxiObserver.cs" />
-    <Compile Include="Domain\ObservableOrder.cs" />
-    <Compile Include="Domain\ObservableTaxi.cs" />
+    <Compile Include="Controllers\TaxiController.cs" />
+    <Compile Include="DomainFactory\FreeTaxiComanyFactory.cs" />
+    <Compile Include="Domain\FreeOrder.cs" />
+    <Compile Include="Domain\DiscountedTaxi.cs" />
+    <Compile Include="Repositories\SimpleOrderRepositoryBigId.cs" />
+    <Compile Include="Repositories\SimpleTaxiRepositoryBigId.cs" />
+    <Compile Include="Services\CommandsService\ICommand.cs" />
+    <Compile Include="Services\CommandsService\ICommandProcessor.cs" />
+    <Compile Include="Services\UIService\ControllersService\IController.cs" />
+    <Compile Include="Services\DomainService\ObservableDomain\IOrderObserver.cs" />
+    <Compile Include="Services\DomainService\Factory\ITaxiCompanyFactory.cs" />
+    <Compile Include="Services\DomainService\ObservableDomain\ITaxiObserver.cs" />
+    <Compile Include="Services\DomainService\Domain\ObservableOrder.cs" />
+    <Compile Include="Services\DomainService\Domain\ObservableTaxi.cs" />
     <Compile Include="Domain\Order.cs" />
     <Compile Include="DomainFactory\SimpleTaxiCompanyFactory.cs" />
     <Compile Include="Domain\Taxi.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Repositories\Interfaces\IOrderRepository.cs" />
-    <Compile Include="Repositories\Interfaces\ITaxiRepository.cs" />
+    <Compile Include="Services\DomainService\Repositories\IOrderRepository.cs" />
+    <Compile Include="Services\DomainService\Repositories\ITaxiRepository.cs" />
     <Compile Include="Repositories\SimpleOrderRepository.cs" />
     <Compile Include="Repositories\SimpleTaxiRepository.cs" />
+    <Compile Include="Services\UIService\UIFactoryService\IUIFactory.cs" />
     <Compile Include="UIFactory\OrdersMonitoringUIFactory.cs" />
-    <Compile Include="ViewModels\Interfaces\IOrderView.cs" />
-    <Compile Include="ViewModels\Interfaces\ITaxiView.cs" />
+    <Compile Include="Services\UIService\ViewModelsService\IOrderView.cs" />
+    <Compile Include="UIFactory\TaxiMonitoringUIFactory.cs" />
+    <Compile Include="ViewModels\Order\Adapters\OrderViewAdapter.cs" />
     <Compile Include="ViewModels\Order\OrderView.cs" />
     <Compile Include="ViewModels\Order\SimpleOrderListItemView.cs" />
     <Compile Include="ViewModels\Order\SimpleOrderView.cs" />
@@ -76,8 +85,8 @@
     <Compile Include="ViewModels\Taxi\SimpleTaxiView.cs" />
     <Compile Include="ViewModels\Taxi\TaxiView.cs" />
     <Compile Include="Views\Helpers\ConsoleHelper.cs" />
-    <Compile Include="Views\Interfaces\IView.cs" />
     <Compile Include="Views\OrderUIView.cs" />
+    <Compile Include="Views\TaxiUIView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -86,7 +95,11 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\ControllersService\" />
+    <Folder Include="Services\UIFactoryService\" />
+    <Folder Include="Services\ViewModelsService\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Diagrams\PackageDiagram.png" />
   </ItemGroup>

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using PSP3.Repositories;
+using PSP3.DomainService;
+using PSP3.UIService;
 
 namespace PSP3.ViewModels
 {
-    public class SimpleOrdersListView : IOrderView
+    public class SimpleOrdersListView : IViewModel
     {
         private List<SimpleOrderListItemView> list;
         private IOrderRepository _repository;

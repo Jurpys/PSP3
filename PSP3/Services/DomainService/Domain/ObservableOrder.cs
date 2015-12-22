@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace PSP3.Domain
+namespace PSP3.DomainService
 {
     public abstract class ObservableOrder : ITaxiObserver
     {
         private List<IOrderObserver> _observers = new List<IOrderObserver>();
         private bool _isTaken;
-        private double? _price;
+        protected double? _price;
         public int _destination;
 
         public int Id { get; set; }
@@ -31,7 +31,7 @@ namespace PSP3.Domain
             }
         }
 
-        public double? Price
+        public virtual double? Price
         {
             get { return _price; }
             set
@@ -39,10 +39,6 @@ namespace PSP3.Domain
                 _price = value;
                 Notify();
             }
-        }
-
-        public ObservableOrder()
-        {
         }
 
         public void AttachObserver(IOrderObserver observer)
@@ -63,9 +59,9 @@ namespace PSP3.Domain
             }
         }
 
-        public void UpdateAfterTaxiChanged(ObservableTaxi taxi)
+        public virtual void UpdateAfterTaxiChanged(ObservableTaxi taxi)
         {
-            _price = taxi.CalculateCurrentOrderPrice();
+            Price = taxi.CalculateCurrentOrderPrice();
             taxi.DetachObserver(this);
         }
     }

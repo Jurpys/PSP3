@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PSP3.Domain;
+﻿using System.Collections.Generic;
+using PSP3.DomainService;
 
 namespace PSP3.Repositories
 {

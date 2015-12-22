@@ -1,4 +1,6 @@
-﻿namespace PSP3.Domain
+﻿using PSP3.DomainService;
+
+namespace PSP3.Domain
 {
     public class Taxi : ObservableTaxi
     {
